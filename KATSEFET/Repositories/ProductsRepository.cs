@@ -4,6 +4,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using KATSEFET.Data;
 using KATSEFET.DTO;
 using KATSEFET.Modells;
+using KATSEFET.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using OpenXmlPowerTools;
@@ -17,13 +18,7 @@ public class ProductsRepository
 
     KATSEFETContext context = KatsefetContextFactory.CreateContext();
 
-    public List<Product> getOrderProduct(string name)
-    {
-        var ProductsTags = context.Products.
-            Where(c => (c.TypeOfProduct.CategoryName == name) & (c.IsDeleted == false))
-            .ToList();
-        return ProductsTags;
-    }
+
     public List<ProductsDto> getOrderProductDto(string name)
     {
         return context.Products
@@ -39,27 +34,15 @@ public class ProductsRepository
 
     public Product SetProductDeleted(int id)
     {
-        var ProductsTags = context.Products.
-            Where(c => c.ProductId == id)
+        var ProductsTags = context.Products
+        .Where(c => c.ProductId == id)
             .ToList();
         ProductsTags[0].IsDeleted = true;
         context.SaveChanges();
         return ProductsTags[0];
 
     }
-    public dynamic GetProductsWithCategories()
-    {
-        var ProductsTags = context.Products
-                .Include(x => x.TypeOfProduct)
-                .Where(a => a.IsDeleted == false)
-                .Select(a => new
-                {
-                    a.Name,
-                    categories = a.TypeOfProduct.CategoryName
-                })
-                .ToList();
-        return ProductsTags;
-    }
+ 
     public List<ProductsDto> GetProductsWithCategoriesDto()
     {
         var Products = context.Products
@@ -75,18 +58,7 @@ public class ProductsRepository
         return Products;
     }
 
-    public dynamic GetOrdersAndProducts()
-    {
-        var OrdersTag = context.Orders
-        .Include(x => x.Products)
-        .Select(a => new
-        {
-            a.User.Name,
-            Products = a.Products.Select(c => c.Name)
-        }).ToList();
 
-        return OrdersTag;
-    }
     public List<OrdersDto> GetOrdersAndProductsDto()
     {
         var Orders = context.Orders
@@ -108,14 +80,6 @@ public class ProductsRepository
         return Orders;
     }
 
-    public List<Product> GetSortedProducts()
-    {
-        var ProductsTags = context.Products
-            .Where(a => a.IsDeleted == false)
-                .OrderBy(x => x.Name)
-               .ToList();
-        return ProductsTags;
-    }
     public List<ProductsDto> GetSortedProductsDto()
     {
         var Products = context.Products
@@ -159,7 +123,6 @@ public class ProductsRepository
         "EXEC CreateCategory  @Description,@CategoryName, @CategoryId OUTPUT",
         parameters);
 
-        // Get the output value
         int newCategoryId = (int)outputParam.Value;
 
 
@@ -184,6 +147,56 @@ public class ProductsRepository
             return false;
         }
     }
+
+    public List<CategoryDto> GetCategories()
+    {
+        var CategoriesList = context.Categories
+        .Select(p => new CategoryDto
+        {
+            CategoryName = p.CategoryName,
+            Description = p.Description,
+        })
+        .OrderBy(x => x.CategoryName)
+        .ToList();
+
+        return CategoriesList;
+    
+    }
+    public List<UserDto> GetUsersDtos()
+    {
+        var UsersList = context.Users
+        .Select(p=>new  UserDto
+        {
+            Name = p.UserName,
+            Password = p.Password,
+            Phone=p.Phone,
+            UserName = p.UserName,
+            Email = p.Email,
+            Admin=p.Admin
+
+        })
+        .OrderBy(x => x.UserName)
+        .ToList();
+        return UsersList;
+    }
+
+    public User createUserDto(UserDto user)
+    {
+        var User = new User
+        {
+            UserName = user.UserName,
+            Email = user.Email,
+            Admin = user.Admin,
+            Password = user.Password,
+            Phone = user.Phone,
+            Name = user.UserName,
+        };
+
+        context.Users.Add(User);
+        context.SaveChanges();
+        return User;
+    }
+
 }
 
 

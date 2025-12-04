@@ -49,5 +49,13 @@ namespace KATSEFET.Controllers
             }
 
         }
-}
+        [HttpGet]
+        [Route("GetCategoriesDto")]
+        public IActionResult GetCategories()
+        {
+            return Ok(_repository.GetCategories());
+        }
+
+
+    }
 }

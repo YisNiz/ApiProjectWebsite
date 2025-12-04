@@ -521,5 +521,8 @@ E:\Web APIשב\KATSEFET\KATSEFET\obj\Debug\net8.0\KATSEFET.pdb
 E:\Web APIשב\KATSEFET\KATSEFET\obj\Debug\net8.0\KATSEFET.genruntimeconfig.cache
 E:\Web APIשב\KATSEFET\KATSEFET\obj\Debug\net8.0\ref\KATSEFET.dll
 E:\Web APIשב\KATSEFET\KATSEFET\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-D:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 M:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+M:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\KATSEFET.sourcelink.json
+D:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\KATSEFET.sourcelink.json
+D:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\swae.build.ex.cache
+D:\Web API\KATSEFET\KATSEFET\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

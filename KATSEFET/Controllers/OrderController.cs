@@ -12,12 +12,7 @@ namespace KATSEFET.Controllers
     {
         private readonly ProductsRepository _repository = new();
 
-        [HttpGet]
-        [Route("GetOrdersAndProducts")]
-        public IActionResult GetOrdersAndProducts()
-        {
-            return Ok(_repository.GetOrdersAndProducts());
-        }
+ 
 
 
         [HttpGet]
@@ -26,5 +21,8 @@ namespace KATSEFET.Controllers
         {
             return Ok(_repository.GetOrdersAndProductsDto());
         }
+
+
+
     }
 }

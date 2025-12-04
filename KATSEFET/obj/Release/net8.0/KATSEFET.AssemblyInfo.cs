@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KATSEFET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5811191f630f8941b4482855762a4855202d4b22")]
 [assembly: System.Reflection.AssemblyProductAttribute("KATSEFET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KATSEFET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

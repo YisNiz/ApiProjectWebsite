@@ -12,7 +12,6 @@ namespace KATSEFET.DTO
         public string? Name { get; set; } = string.Empty;
         public string? TypeOfProduct { get; set; }
         public bool IsDeleted { get; set; }
-        public List<string> SubCategories { get; set; }
     }
 
     public class OrdersDto
@@ -26,6 +25,17 @@ namespace KATSEFET.DTO
     {
         public string? CategoryName { get; set; } = string.Empty;
         public string? Description { get; set; }
+
     }
-   
+
+    public class UserDto
+    {
+        public string? Password { get; set; }
+        public string? Email { get; set; }
+        public string? Name { get; set; }
+        public string? UserName { get; set; }
+        public Admin? Admin { get; set; }
+        public string? Phone { get; set; }
+    }
+
 }

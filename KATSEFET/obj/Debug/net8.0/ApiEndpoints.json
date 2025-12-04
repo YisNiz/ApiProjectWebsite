@@ -32,9 +32,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "KATSEFET.Controllers.OrderController",
-    "Method": "GetOrdersAndProducts",
-    "RelativePath": "api/Order/GetOrdersAndProducts",
+    "ContainingType": "KATSEFET.Controllers.CategoryController",
+    "Method": "GetCategories",
+    "RelativePath": "api/Category/GetCategoriesDto",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -90,26 +90,16 @@
   },
   {
     "ContainingType": "KATSEFET.Controllers.ProductController",
-    "Method": "GetProductsWithCategories",
-    "RelativePath": "api/Product/GetCategories",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KATSEFET.Controllers.ProductController",
-    "Method": "getOrderProduct",
-    "RelativePath": "api/Product/getOrderProduct",
-    "HttpMethod": "GET",
+    "Method": "CreateProduct",
+    "RelativePath": "api/Product/CreateProduct",
+    "HttpMethod": "",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "product",
+        "Type": "KATSEFET.Modells.Product",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -142,16 +132,6 @@
   },
   {
     "ContainingType": "KATSEFET.Controllers.ProductController",
-    "Method": "GetSortedProducts",
-    "RelativePath": "api/Product/GetSortedProducts",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KATSEFET.Controllers.ProductController",
     "Method": "GetSortedProductsDto",
     "RelativePath": "api/Product/GetSortedProductsDto",
     "HttpMethod": "GET",
@@ -161,24 +141,29 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "KATSEFET.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "KATSEFET.Controllers.UserController",
+    "Method": "createUserDto",
+    "RelativePath": "api/User/createUsersDto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "KATSEFET.DTO.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KATSEFET.Controllers.UserController",
+    "Method": "getUsersDto",
+    "RelativePath": "api/User/getUsersDto",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[KATSEFET.WeatherForecast, KATSEFET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
   }
 ]
