@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using KATSEFET.Modells;
+using KATSEFET.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using KATSEFET.Modells;
 
 namespace KATSEFET.Controllers
 {
@@ -9,16 +10,14 @@ namespace KATSEFET.Controllers
     public class ProductController : ControllerBase
     {
 
-        private readonly ProductsRepository _repository = new();
-
-
+         private readonly IProductsService _IProService;
 
 
         [HttpGet]
         [Route("GetProductsWithCategoriesDto")]
         public IActionResult GetProductsWithCategoriesDto()
         {
-            return Ok(_repository.GetProductsWithCategoriesDto());
+            return Ok(_IProService.GetProductsWithCategoriesDto());
         }
 
 
@@ -26,7 +25,7 @@ namespace KATSEFET.Controllers
         [Route("getOrderProductDto")]
         public IActionResult getOrderProductDto(string name)
         {
-            return Ok(_repository.getOrderProductDto(name));
+            return Ok(_IProService.getOrderProductDto(name));
         }
 
         
@@ -34,15 +33,15 @@ namespace KATSEFET.Controllers
         [Route("GetSortedProductsDto")]
         public IActionResult GetSortedProductsDto()
         {
-            return Ok(_repository.GetSortedProductsDto());
+            return Ok(_IProService.GetSortedProductsDto());
         }
 
   
-        [HttpPost("{product}")]
+        [HttpPost]
         [Route("CreateProduct")]
         public IActionResult CreateProduct(Product product)
         {
-            return Ok(_repository.CreateProduct(product));
+            return Ok(_IProService.CreateProduct(product));
         }
 
 
@@ -50,7 +49,7 @@ namespace KATSEFET.Controllers
         [Route("{id}/DeleteProduct")]
         public IActionResult SetProductDeleted(int id)
         {
-            return Ok(_repository.SetProductDeleted(id));
+            return Ok(_IProService.SetProductDeleted(id));
         }
 
   

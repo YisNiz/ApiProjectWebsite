@@ -1,4 +1,6 @@
 using KATSEFET.Data;
+using KATSEFET.Repositories;
+using KATSEFET.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<KATSEFETContext>(options =>
         options.UseSqlServer("Server=Srv2\\pupils;DataBase=216259986KATSEFET;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
 
+
+builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IProductsService, ProductsService>();
 
 var app = builder.Build();
 

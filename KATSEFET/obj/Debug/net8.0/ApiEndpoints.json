@@ -18,7 +18,7 @@
   {
     "ContainingType": "KATSEFET.Controllers.CategoryController",
     "Method": "CreateCategory",
-    "RelativePath": "api/Category/CreateCategory",
+    "RelativePath": "api/Category/CreateCategoryWithProc",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -70,29 +70,8 @@
   {
     "ContainingType": "KATSEFET.Controllers.ProductController",
     "Method": "CreateProduct",
-    "RelativePath": "api/Product/{product}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "product",
-        "Type": "KATSEFET.Modells.Product",
-        "IsRequired": true
-      },
-      {
-        "Name": "product",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "KATSEFET.Controllers.ProductController",
-    "Method": "CreateProduct",
     "RelativePath": "api/Product/CreateProduct",
-    "HttpMethod": "",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [

@@ -5,6 +5,7 @@ using KATSEFET.Data;
 using KATSEFET.DTO;
 using KATSEFET.Modells;
 using KATSEFET.Models;
+using KATSEFET.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using OpenXmlPowerTools;
@@ -13,7 +14,7 @@ using System.Linq;
 using System.Net;
 using Category = KATSEFET.Modells.Category;
 
-public class ProductsRepository
+public class ProductsRepository: IProductsRepository
 {
 
     KATSEFETContext context = KatsefetContextFactory.CreateContext();

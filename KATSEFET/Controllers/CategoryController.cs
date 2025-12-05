@@ -1,8 +1,14 @@
 ﻿using KATSEFET.Data;
 using KATSEFET.DTO;
+using KATSEFET.DTO;
 using KATSEFET.Modells;
+using KATSEFET.Modells;
+using KATSEFET.Models;
+using KATSEFET.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Management.Automation;
+
 
 namespace KATSEFET.Controllers
 {
@@ -13,15 +19,15 @@ namespace KATSEFET.Controllers
     public class CategoryController:ControllerBase
     {
 
-        private readonly ProductsRepository _repository = new();
+        private readonly IProductsService _IProService;
 
         [HttpPost]
-        [Route("CreateCategory")]
+        [Route("CreateCategoryWithProc")]
         public IActionResult CreateCategory([FromBody] CategoryDto category)
         {
             try
             {
-                int res = _repository.CreateCategoryWithProc(category);
+                int res = _IProService.CreateCategoryWithProc(category);
                 return Ok(res);
             }
             catch (Exception ex)
@@ -39,7 +45,7 @@ namespace KATSEFET.Controllers
         {
             try
             {
-                bool res = _repository.CreateCategoriesTransaction(list);
+                bool res = _IProService.CreateCategoriesTransaction(list);
                 return Ok(res);
         }
             catch (Exception ex)
@@ -53,7 +59,7 @@ namespace KATSEFET.Controllers
         [Route("GetCategoriesDto")]
         public IActionResult GetCategories()
         {
-            return Ok(_repository.GetCategories());
+            return Ok(_IProService.GetCategories());
         }
 
 

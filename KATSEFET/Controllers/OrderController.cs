@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using KATSEFET.Modells;
+using KATSEFET.Services;
 using Microsoft.AspNetCore.Http;
-
-using KATSEFET.Modells;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KATSEFET.Controllers
 {
@@ -10,16 +10,16 @@ namespace KATSEFET.Controllers
     [ApiController]
     public class OrderController: ControllerBase
     {
-        private readonly ProductsRepository _repository = new();
+        private readonly IProductsService _IProService;
 
- 
+
 
 
         [HttpGet]
         [Route("GetOrdersAndProductsDto")]
         public IActionResult GetOrdersAndProductsDto()
         {
-            return Ok(_repository.GetOrdersAndProductsDto());
+            return Ok(_IProService.GetOrdersAndProductsDto());
         }
 
 

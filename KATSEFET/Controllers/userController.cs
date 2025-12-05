@@ -2,6 +2,7 @@
 using KATSEFET.DTO;
 using KATSEFET.Modells;
 using KATSEFET.Models;
+using KATSEFET.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,21 +13,21 @@ namespace KATSEFET.Controllers
     [ApiController]
     public class UserController: ControllerBase
     {
-        private readonly ProductsRepository _repository = new();
+        private readonly IProductsService _IProService;
 
 
         [HttpGet]
         [Route ("getUsersDto")]
         public IActionResult getUsersDto()
         {
-            return Ok(_repository.GetUsersDtos());
+            return Ok(_IProService.GetUsersDtos());
         }
 
         [HttpPost]
         [Route("createUsersDto")]
         public IActionResult  createUserDto(UserDto user)
         {
-            return Ok(_repository.createUserDto(user));
+            return Ok(_IProService.createUserDto(user));
         }
     }
 }
